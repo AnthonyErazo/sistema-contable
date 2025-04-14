@@ -5,9 +5,11 @@ from .models import AsientoContable, Saldo_Inicial
 from .forms import AsientoContableForm, SaldoInicialForm
 from .constants import valores_cuentas, tipo_cuenta_valor, valores_tipo_monto, cuentas_dict, tipo_cuenta
 from django.core.serializers.json import DjangoJSONEncoder
+from django.views.decorators.csrf import csrf_protect
 import json
 
 # Create your views here.
+@csrf_protect
 def home(request):
     if request.method == 'POST':
         form = AsientoContableForm(request.POST)
@@ -359,6 +361,7 @@ def calcular_mayores_ce(asientos, saldos):
         if data['fechas_debe_haber'] 
     ]
 
+@csrf_protect
 def saldo(request):
     if request.method == 'POST':
         form = SaldoInicialForm(request.POST)

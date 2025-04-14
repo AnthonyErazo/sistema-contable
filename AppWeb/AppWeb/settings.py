@@ -27,6 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+# CSRF Configuration
+CSRF_COOKIE_SECURE = False  # Cambiar a True en producción
+CSRF_COOKIE_HTTPONLY = False  # Cambiar a True en producción
+CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']  # Agrega aquí tus dominios de confianza
 
 # Application definition
 
